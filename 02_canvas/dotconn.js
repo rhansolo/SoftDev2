@@ -65,7 +65,7 @@ function drawCircle(e)
 function connectDot(xcor,ycor){
 	var canvas = document.getElementById("playground");
 	var ctx = canvas.getContext("2d");
-	ctx.beginPath();
+	//ctx.beginPath();
 	ctx.moveTo(last_xcor,last_ycor);
 	ctx.lineTo(xcor,ycor);
 	ctx.stroke();
