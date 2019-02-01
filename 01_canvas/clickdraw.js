@@ -1,3 +1,9 @@
+// HanSoLo:  Robin Han
+// SoftDev2 PD7
+// K#01 -- ...and I want to Paint It Btter
+// 2019-01-31
+
+
 //var to see if user is selecting to draw a rectangle;
 var is_drawing_rectangle = true;
 var has_drawing = false;
