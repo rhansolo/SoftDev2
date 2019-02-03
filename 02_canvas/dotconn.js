@@ -1,4 +1,4 @@
-// HanSoLo:  Robin Han
+// smallChungus:  Robin Han & Isaac Jon
 // SoftDev2 PD7
 // K#01 -- ...and I want to Paint It Btter
 // 2019-01-31
@@ -34,6 +34,8 @@ function clear(e){
 	var ctx = canvas.getContext("2d");
 	has_drawing = false;
 	error.innerHTML = "";
+	last_xcor = null;
+	last_ycor = null;
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
