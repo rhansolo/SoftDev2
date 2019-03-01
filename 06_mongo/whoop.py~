@@ -1,0 +1,16 @@
+import pymongo
+
+SERVER_ADDR = "68.183.21.138"
+connection=pymongo.MongoClient(SERVER_ADDR)
+db=connection.test
+collection=db.restaurants
+
+#Specified BOROUGH
+b = "Queens"
+def bFind(borough):
+    found = collection.find({"borough":borough})
+    for item in found:
+        print("Displaying restaurants in borough: " + borough + "\n")
+        print("Name: "+ item['name'] + "\n")
+
+bFind(b)
