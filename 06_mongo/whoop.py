@@ -1,6 +1,6 @@
 import pymongo
 
-SERVER_ADDR = "68.183.21.138"
+SERVER_ADDR = "198.211.97.148"
 connection=pymongo.MongoClient(SERVER_ADDR)
 db=connection.test
 collection=db.restaurants
