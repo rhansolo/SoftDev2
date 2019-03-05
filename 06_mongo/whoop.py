@@ -1,6 +1,6 @@
 import pymongo
 
-SERVER_ADDR = "198.211.97.148"
+SERVER_ADDR = "198.211.117.197"
 connection=pymongo.MongoClient(SERVER_ADDR)
 db=connection.test
 collection=db.restaurants
@@ -26,5 +26,7 @@ def findZipGrade(zipcode,grade):
 def findZipScore(zipcode,score):
     found = collection.find({"address.zipcode":zipcode,"grades.score":{"$lt": score}})
     for item in found:
-        print("displaying with zip: " + zipcode + " and score below :" + score + "\n")
-        print("Zip+Score: " + item['name']+ "\n")
+        print("Displaying with zip: " + zipcode + " and score below :" + score + "\n")
+        print("Zip + Score: " + item['name']+ "\n")
+
+findBorough("Queens")
