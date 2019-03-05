@@ -1,4 +1,4 @@
-#Team GarlicHumus: Robin Han and Isaac Jon
+#Team GarlicHummus: Robin Han and Isaac Jon
 #SoftDev2 pd7
 #K #07: Import/Export Bank
 #2019-03-01
