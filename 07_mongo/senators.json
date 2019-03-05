@@ -1,10 +1,4 @@
-{
- "meta": {
-  "limit": 100,
-  "offset": 0,
-  "total_count": 100
- },
- "objects": [
+[
   {
    "caucus": null,
    "congress_numbers": [
@@ -5105,5 +5099,4 @@
    "title_long": "Senator",
    "website": "https://www.romney.senate.gov"
   }
- ]
-}
+]
