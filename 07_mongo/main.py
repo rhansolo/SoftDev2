@@ -4,6 +4,7 @@
 #2019-03-01
 
 import pymongo
+import json
 
 SERVER_ADDR = "198.211.117.197"
 connection=pymongo.MongoClient(SERVER_ADDR)
@@ -24,10 +25,14 @@ collection=db.senators
  			},
  			"objects":' 
  		at the beginning of the JSON file and the corresponding '}' at the end
-        When importing the JSON file, we needed to attach '--jsonArray' flag:
-            mongoimport --db DATABASE_NAME --collection COLLECTION_NAME --drop --jsonArray --file DIRECTORY_NAME/pokedex.json
+       	To import the senators data, run main.py with import_db() uncommented. After running it, comment out the function call.
 '''
-
+def import_db():
+	f = open("senators.json","r")
+	data = json.loads(f.read())
+	f.close()
+	collection.insert_many(data)
+#import_db()
 def get_senators_from_party(party):
     results = collection.find({"party":party})
     print("Senators from the " + party + " party: ")
