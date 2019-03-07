@@ -1,4 +1,4 @@
-#Team TangoTongoMangoMongo: Robin Han,
+#Team TangoTongoMangoMongo: Robin Han,Dennis Chen, Imad Belkebir
 #SoftDev2 pd7
 #K #07: Import/Export Bank
 #2019-03-01
@@ -10,8 +10,9 @@ import json
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
-collection = None  
+collection = None
 
+# 198.211.117.197
 @app.route('/')
 def home():
 	return render_template('main.html')
@@ -26,7 +27,7 @@ def display():
 	data = json.loads(f.read())
 	f.close()
 	collection.insert_many(data)
-	return render_template('newpage.html') 
+	return render_template('newpage.html')
 
 def get_senators_from_party(party):
     results = collection.find({"party":party})
