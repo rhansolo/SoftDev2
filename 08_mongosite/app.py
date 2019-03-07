@@ -3,15 +3,14 @@
 #K #07: Import/Export Bank
 #2019-03-01
 
-from flask import Flask, render_template
+from flask import Flask, redirect, url_for, render_template, session, request
 import pymongo
 import os
 import json
-import urllib.request as request
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
-
+collection = None  
 
 @app.route('/')
 def home():
@@ -23,17 +22,12 @@ def display():
 	connection=pymongo.MongoClient(SERVER_ADDR)
 	db=connection.GarlicHumus
 	collection=db.senators
-	import_db()
-	return render_template('newpage.html') 
-
-
-
-def import_db():
 	f = open("senators.json","r")
 	data = json.loads(f.read())
 	f.close()
 	collection.insert_many(data)
-#import_db()
+	return render_template('newpage.html') 
+
 def get_senators_from_party(party):
     results = collection.find({"party":party})
     print("Senators from the " + party + " party: ")
