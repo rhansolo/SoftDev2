@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> New Page </title>
+    <title> Senators </title>
   </head>
+  <h1>Questions</h1>
   <body>
-  </body> 
+    <form action = "/getSenP" method = "post">
+      What party do you want the list of senators of? ("Democrat" or "Republican"?)<br>
+      <input type = "text" name = "party"><br>
+      <input type = "submit" value = "Submit">
+    </form>
+    <form action = "/getSenI" method = "post">
+      What senator's info do you want?<br>
+      <input type = "text" name = "name"><br>
+      <input  type = "submit" value = "Submit">
+    </form>
+    <form action = "/getConI" method = "post">
+      What senator's contact info do you want?<br>
+      <input type = "text" name = "name"><br>
+      <input  type = "submit" value = "Submit">
+    </form>
+    <form action = "/getSMI" method = "post">
+      What senator's social media info do you want?<br>
+      <input type = "text" name = "name"><br>
+      <input  type = "submit" value = "Submit">
+    </form>
+    <form action = "/getSenS" method = "post">
+      What state do you want the list of senators of?<br>
+      <input type = "text" name = "State"><br>
+      <input  type = "submit" value = "Submit">
+    </form>
+    <div>
+      <h2> Results </h2>
+      {% for each in info %}
+        {{each}}<br>
+      {% endfor %}
+    </div>
+  </body>
 </html>
