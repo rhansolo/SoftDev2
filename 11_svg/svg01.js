@@ -1,3 +1,8 @@
+// Robin Han
+// SoftDev2 pd 7
+// K11 -- Ask Circles [Change || Die] …While On The Go
+// 2019-03-17
+
 var pic = document.getElementById('vimage');
 var clear_button = document.getElementById('but_clear');
 var move_button = document.getElementById('move');
