@@ -48,7 +48,7 @@ var change = (c) =>{
     c.setAttribute('fill', 'red');
   }
   else if (c.getAttribute("cx") >= pic.getAttribute('height')/2 && c.getAttribute("cy") <= pic.getAttribute('height')/2){
-    c.setAttribute('fill', 'blue');
+    c.setAttribute('fill', 'green');
   }
   else if (c.getAttribute("cx") <= pic.getAttribute('height')/2 && c.getAttribute("cy") >= pic.getAttribute('height')/2){
     c.setAttribute('fill', 'purple');
