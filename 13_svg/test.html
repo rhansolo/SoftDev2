@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html>
+    <head>
+      <meta charset="utf-8" />
 
-.chart rect {
-  fill: steelblue;
-}
+        <style>
+          .chart rect {
+            fill: steelblue;
+          }
+          .chart text {
+            fill: white;
+            font: 10px sans-serif;
+            text-anchor: end;
+          }
+        </style>
+    </head>
+    <body>
 
-.chart text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end;
-}
+        <svg class="chart"></svg>
+        <script src="http://d3js.org/d3.v3.min.js"
+        	charset="utf-8">
+        </script>
 
-</style>
-<svg class="chart"></svg>
-<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-<script src="index.js"></script>
+        <script src="index.js"></script>
+
+    </body>
+</html>
