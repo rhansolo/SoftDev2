@@ -25,7 +25,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-d3.csv("cereal.csv", function(error, data) {
+d3.csv("cereal.csv").then(function(data) {
   data.forEach(function(d) {
     d.Calories = +d.Calories;
     d["Protein (g)"] = +d["Protein (g)"];
@@ -65,5 +65,5 @@ d3.csv("cereal.csv", function(error, data) {
       .attr("r", 3.5)
       .attr("cx", x_map)
       .attr("cy", y_map)
-      .style("fill", function(d) { return color(cValue(d));})
+      .style("fill", function(d) { return color(c_value(d));})
 });
