@@ -3,18 +3,18 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 
-var xValue = function(d) { return d.Calories;},
-    xScale = d3.scaleLinear().range([0, width]),
-    xMap = function(d) { return xScale(xValue(d));},
-    xAxis = d3.axisBottom("bottom");
+var x_value = function(d) { return d.Calories;},
+    x_scale = d3.scaleLinear().range([0, width]),
+    x_map = function(d) { return x_scale(x_value(d));},
+    x_axis = d3.axisBottom(x_scale);
 
-var yValue = function(d) { return d["Protein (g)"];},
-    yScale = d3.scaleLinear().range([height, 0]),
-    yMap = function(d) { return yScale(yValue(d));},
-    yAxis = d3.axisLeft(yScale);
+var y_value = function(d) { return d["Protein (g)"];},
+    y_scale = d3.scaleLinear().range([height, 0]),
+    y_map = function(d) { return y_scale(y_value(d));},
+    y_axis = d3.axisLeft(y_scale);
 
 
-var cValue = function(d) { return d.Manufacturer;},
+var c_value = function(d) { return d.Manufacturer;},
     color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
@@ -31,14 +31,14 @@ d3.csv("cereal.csv", function(error, data) {
     d["Protein (g)"] = +d["Protein (g)"];
   });
 
-  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+  x_scale.domain([d3.min(data, x_value)-1, d3.max(data, x_value)+1]);
+  y_scale.domain([d3.min(data, y_value)-1, d3.max(data, y_value)+1]);
 
   // x-axis
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
+      .call(x_axis)
     .append("text")
       .attr("class", "label")
       .attr("x", width)
@@ -49,7 +49,7 @@ d3.csv("cereal.csv", function(error, data) {
   // y-axis
   svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis)
+      .call(y_axis)
     .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
@@ -63,6 +63,7 @@ d3.csv("cereal.csv", function(error, data) {
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 3.5)
-      .attr("cx", xMap)
-      .attr("cy", yMap)
+      .attr("cx", x_map)
+      .attr("cy", y_map)
       .style("fill", function(d) { return color(cValue(d));})
+});
