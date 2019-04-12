@@ -1,3 +1,7 @@
+#Robin Han
+#SoftDev2 pd7
+#K16 -- Do you even list?
+#2019-04-12
 LC_LETTERS = "abcdefghijklmnopqrstuvwxyz"
 UC_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 NUMBERS = "1234567890"
