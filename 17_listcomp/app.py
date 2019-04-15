@@ -6,9 +6,6 @@ K #17: PPFTLCW
 '''
 import math
 
-a = [0,1,2,3,4]
-b = [0,1,2]
-
 not_primes = []
 
 
@@ -18,7 +15,7 @@ def q1_loop():
         temp.append(i*22)
     print(temp)
 def q1_list():
-    print ([x*22 for x in a])
+    print ([x*22 for x in range(5)])
 
 def q2_loop():
     temp = []
@@ -26,7 +23,7 @@ def q2_loop():
         temp.append(i*10+7)
     print (temp)
 def q2_list():
-    print ([x*10+7 for x in a])
+    print ([x*10+7 for x in range(5)])
 
 
 def q3_loop():
@@ -36,7 +33,7 @@ def q3_loop():
             temp2.append(i*u)
     print(temp2)
 def q3_list():
-    print([x * y for x in b for y in b])
+    print([x * y for x in range(3) for y in range(3)])
 
 def q4_loop():
     temp = []
