@@ -2,9 +2,7 @@
 def pyTriples(a):
     return([(m**2-n**2,2*m*n,m**2+n**2) for m in range(1,a) for n in range(1,a) if 2*m*n > 0 if m**2-n**2 > 0 if m**2+n**2 > 0])
 def quickSort(arr):
-    if len(arr) <=2:
-        return arr
-    return quickSort([y for y in arr if y < arr[0]]) + [arr[0]] + quickSort([x for x in arr if x > arr[0]])
+    return ((quickSort([y for y in arr if y < arr[0]]) + [arr[0]] + quickSort([x for x in arr if x > arr[0]])) if len(arr) > 2 else arr)
 
 
 print(pyTriples(10))
