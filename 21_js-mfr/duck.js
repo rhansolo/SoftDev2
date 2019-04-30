@@ -8,7 +8,7 @@ var medianethnicity = document.getElementById('medianethnicity');
 var percentageEthnicity = document.getElementById('percentageEthnicity');
 var numgrades = document.getElementById('numgrades');
 
-d3.csv('https://raw.githubusercontent.com/robinhanstuy/softdevhw2/master/21_js-mfr/2006_-_2012_School_Demographics_and_Accountability_Snapshot.csv').then(function(data) {
+d3.csv('https://raw.githubusercontent.com/robinhanstuy/SoftDev2/master/21_js-mfr/2006_-_2012_School_Demographics_and_Accountability_Snapshot.csv').then(function(data) {
   numschools.innerHTML = numSchools(data, '20112012');
   medianethnicity.innerHTML = medianNumEthnicity(data, '20112012', 'asian');
   var perEthnicity = percentEthnicity(data, '20112012', 'asian');
