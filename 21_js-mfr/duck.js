@@ -1,3 +1,57 @@
-var json = require('./2006_-_2012_School_Demographics_and_Accountability_Snapshot.json');
-var mydata = JSON.parse(json);
-console.log(mydata);
+//Robin Han
+// Softdev2 pd07
+// K21 --  Onions, Bell Peppers, and Celery, Oh My!  JS and the Holy Trinity
+// 2019-04-29
+
+var numschools = document.getElementById('numschools');
+var medianethnicity = document.getElementById('medianethnicity');
+var percentageEthnicity = document.getElementById('percentageEthnicity');
+var numgrades = document.getElementById('numgrades');
+
+d3.csv('https://raw.githubusercontent.com/robinhanstuy/softdevhw2/master/21_js-mfr/2006_-_2012_School_Demographics_and_Accountability_Snapshot.csv').then(function(data) {
+  numschools.innerHTML = numSchools(data, '20112012');
+  medianethnicity.innerHTML = medianNumEthnicity(data, '20112012', 'asian');
+  var perEthnicity = percentEthnicity(data, '20112012', 'asian');
+  var tmp = '';
+  perEthnicity.forEach(function(obj) { tmp += obj.name + ": " + obj.ethnicity +'% <br>'; });
+  var str = function(perEthnicity){
+    var tmp = '';
+  }
+  percentageEthnicity.innerHTML = (tmp);
+  numgrades.innerHTML = numSchoolsGrades(data, '20112012', 'grade10', 'grade3');
+});
+
+var findYear = function(data, years){
+  return data.filter(function(n){ return n.schoolyear == years; });
+};
+
+
+var numSchools = function(data, years){
+  return findYear(data, years).length;
+};
+
+var medianNumEthnicity = function(data, years, ethnicity){
+  var ethnicity_index = ethnicity + '_num';
+  var yearData = findYear(data, years);
+  var ethnicityData = yearData.map(function(school){ return parseInt(school[ethnicity_index],10); });
+  ethnicityData.sort();
+  if (ethnicityData.length % 2 == 0){
+    return (ethnicityData[ethnicityData.length / 2] + ethnicityData[ethnicityData.length / 2 + 1]) / 2;
+  }
+  return ethnicityData[Math.ceil(ethnicityData.length / 2)];
+}
+
+var percentEthnicity = function(data, years, ethnicity){
+  var ethnicity_index = ethnicity + '_num';
+  var yearData = findYear(data, years);
+  var ethnicityData = yearData.map(function(school){
+    return {'name': school.Name, 'ethnicity': (school[ethnicity_index] / school.total_enrollment) * 100};
+  });
+  return ethnicityData;
+};
+
+var numSchoolsGrades = function(data, years, grade1, grade2){
+  var yearData = findYear(data, years);
+  var gradeData = yearData.filter(function(school){ return school[grade1] && school[grade2]; });
+  return gradeData.length;
+};
