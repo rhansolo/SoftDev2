@@ -3,22 +3,22 @@
 // K21 --  Onions, Bell Peppers, and Celery, Oh My!  JS and the Holy Trinity
 // 2019-04-29
 
-var numschools = document.getElementById('numschools');
-var medianethnicity = document.getElementById('medianethnicity');
-var percentageEthnicity = document.getElementById('percentageEthnicity');
-var numgrades = document.getElementById('numgrades');
+var num = document.getElementById('num');
+var grades = document.getElementById('grades');
+var medEthn = document.getElementById('medEthn');
+var percEthn = document.getElementById('percEthn');
 
 d3.csv('https://raw.githubusercontent.com/robinhanstuy/SoftDev2/master/21_js-mfr/2006_-_2012_School_Demographics_and_Accountability_Snapshot.csv').then(function(data) {
-  numschools.innerHTML = numSchools(data, '20112012');
-  medianethnicity.innerHTML = medianNumEthnicity(data, '20112012', 'asian');
+  num.innerHTML = numSchools(data, '20112012');
+  medEthn.innerHTML = medianNumEthnicity(data, '20112012', 'asian');
   var perEthnicity = percentEthnicity(data, '20112012', 'asian');
   var tmp = '';
   perEthnicity.forEach(function(obj) { tmp += obj.name + ": " + obj.ethnicity +'% <br>'; });
   var str = function(perEthnicity){
     var tmp = '';
   }
-  percentageEthnicity.innerHTML = (tmp);
-  numgrades.innerHTML = numSchoolsGrades(data, '20112012', 'grade10', 'grade3');
+  percEthn.innerHTML = (tmp);
+  grades.innerHTML = numGrades(data, '20112012', 'grade10', 'grade3');
 });
 
 var findYear = function(data, years){
@@ -50,7 +50,7 @@ var percentEthnicity = function(data, years, ethnicity){
   return ethnicityData;
 };
 
-var numSchoolsGrades = function(data, years, grade1, grade2){
+var numGrades = function(data, years, grade1, grade2){
   var yearData = findYear(data, years);
   var gradeData = yearData.filter(function(school){ return school[grade1] && school[grade2]; });
   return gradeData.length;
