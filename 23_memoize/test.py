@@ -1,21 +1,8 @@
 '''
-import random
-
-def make_HTML_heading(f):
-    txt = f()
-    def inner():
-        return '<h1>' + txt + '</h1>'
-    return inner
-
-@make_HTML_heading
-def greet():
-    greetings = ['hello','Welcome','Ayo','suhsuhG','bonjour']
-    return random.choice(greetings)
-
-greet_heading = make_HTML_heading(greet)
-print(greet_heading())
-
-print(greet())
+Robin Han
+SoftDev2 pd07
+K #23: Closure
+2019-05-01
 '''
 
 def memoize(f):
@@ -37,3 +24,26 @@ def fib(n):
 
 for x in range(0,50):
     print(fib(x))
+
+
+
+
+'''
+import random
+
+def make_HTML_heading(f):
+    txt = f()
+    def inner():
+        return '<h1>' + txt + '</h1>'
+    return inner
+
+@make_HTML_heading
+def greet():
+    greetings = ['hello','Welcome','Ayo','suhsuhG','bonjour']
+    return random.choice(greetings)
+
+greet_heading = make_HTML_heading(greet)
+print(greet_heading())
+
+print(greet())
+'''
